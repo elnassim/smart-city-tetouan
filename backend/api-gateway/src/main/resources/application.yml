@@ -1,0 +1,47 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - StripPrefix=2
+        - id: utility-service
+          uri: lb://utility-service
+          predicates:
+            - Path=/api/utilities/**
+          filters:
+            - StripPrefix=2
+            - name: JwtAuthenticationFilter
+        - id: notification-service
+          uri: lb://notification-service
+          predicates:
+            - Path=/api/notifications/**
+          filters:
+            - StripPrefix=2
+            - name: JwtAuthenticationFilter
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+# JWT Configuration
+jwt:
+  jwks-uri: ${CLERK_JWKS_URI:https://your-clerk-instance.clerk.accounts.dev/.well-known/jwks.json}
+  issuer: ${CLERK_ISSUER_URI:https://your-clerk-instance.clerk.accounts.dev}
+
+debug: true

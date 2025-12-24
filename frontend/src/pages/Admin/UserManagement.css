@@ -1,0 +1,200 @@
+/* User Management Styles */
+.filters-section {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  flex: 1;
+  min-width: 300px;
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.25rem;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.875rem 1rem 0.875rem 3rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: white;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+}
+
+.filter-group label {
+  font-weight: 600;
+  color: #4b5563;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+.filter-select {
+  padding: 0.5rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.filter-select:focus {
+  border-color: #3b82f6;
+}
+
+/* Users Table Section */
+.users-table-section {
+  width: 100%;
+}
+
+.count-badge {
+  margin-left: 0.5rem;
+  padding: 0.25rem 0.625rem;
+  background: #3b82f6;
+  color: white;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.user-name {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.role-select {
+  padding: 0.375rem 0.75rem;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.role-select.admin {
+  background: #fce7f3;
+  color: #9f1239;
+  border-color: #fce7f3;
+}
+
+.role-select.citoyen {
+  background: #dbeafe;
+  color: #1e40af;
+  border-color: #dbeafe;
+}
+
+.role-select.operator {
+  background: #fef3c7;
+  color: #92400e;
+  border-color: #fef3c7;
+}
+
+.role-select:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.action-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.action-btn.view {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+.action-btn.view:hover {
+  background: #e5e7eb;
+  transform: translateY(-2px);
+}
+
+.no-results {
+  padding: 3rem 2rem;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 1rem;
+}
+
+.no-results p {
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .filters-section {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .search-box {
+    min-width: 100%;
+  }
+
+  .filter-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .table-container {
+    overflow-x: auto;
+  }
+
+  .data-table {
+    min-width: 800px;
+  }
+}

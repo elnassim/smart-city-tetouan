@@ -1,0 +1,33 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: clerk-webhook-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/water_electricity_management?useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+    username: root
+    password: nassim123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+  config:
+    import: optional:configserver:http://localhost:8888
+
+clerk:
+  webhook:
+    secret: whsec_BnP03H/3FLtJ8mg641B1cXt+32WpiF4r
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    enabled: false
+  instance:
+    prefer-ip-address: true

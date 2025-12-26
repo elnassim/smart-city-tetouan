@@ -151,7 +151,7 @@ export default function Dashboard() {
               <QuickActionButton
                 label="Voir mes factures"
                 icon="💳"
-                onClick={() => alert('Paiement des factures - À venir')}
+                to="/bills"
                 variant="primary"
               />
               <QuickActionButton

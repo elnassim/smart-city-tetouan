@@ -2,11 +2,14 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { ClerkProvider, useUser } from '@clerk/clerk-react';
 import { useEffect } from 'react';
 import Dashboard from './pages/Dashboard/Dashboard';
-import Claims from './pages/Claims/Claims';
-import Consumption from './pages/Consumption/Consumption';
+import ConsumptionAnalysis from './pages/Consumption/ConsumptionAnalysis';
+import Bills from './pages/Bills/Bills';
+import ClaimsSupport from './pages/Claims/ClaimsSupport';
 import LandingPage from './pages/LandingPage';
 import AdminRoute from './components/AdminRoute';
+import RoleBasedRedirect from './components/RoleBasedRedirect';
 import AdminDashboard from './pages/Admin/AdminDashboard';
+import AdminDashboardEnhanced from './pages/Admin/AdminDashboardEnhanced';
 import UserManagement from './pages/Admin/UserManagement';
 import MeterManagement from './pages/Admin/MeterManagement';
 import ClaimsManagement from './pages/Admin/ClaimsManagement';
@@ -19,18 +22,18 @@ if (!clerkPubKey) {
   throw new Error('Missing Clerk Publishable Key. Please check your .env file.');
 }
 
-// Public route component - redirects to dashboard if signed in
+// Public route component - redirects to auto-redirect if signed in
 function PublicRoute({ children }) {
   const { isSignedIn, isLoaded } = useUser();
-  
+
   if (!isLoaded) {
     return <div className="loading">Chargement...</div>;
   }
-  
+
   if (isSignedIn) {
-    return <Navigate to="/dashboard" replace />;
+    return <Navigate to="/auto-redirect" replace />;
   }
-  
+
   return <>{children}</>;
 }
 
@@ -60,22 +63,35 @@ function App() {
                 <LandingPage />
               </PublicRoute>
             } />
-            
+
+            {/* Auto-redirect based on user role */}
+            <Route path="/auto-redirect" element={
+              <ProtectedRoute>
+                <RoleBasedRedirect />
+              </ProtectedRoute>
+            } />
+
             <Route path="/dashboard" element={
               <ProtectedRoute>
                 <Dashboard />
               </ProtectedRoute>
             } />
-            
-            <Route path="/claims" element={
+
+            <Route path="/bills" element={
               <ProtectedRoute>
-                <Claims />
+                <Bills />
               </ProtectedRoute>
             } />
-            
+
+            <Route path="/claims" element={
+              <ProtectedRoute>
+                <ClaimsSupport />
+              </ProtectedRoute>
+            } />
+
             <Route path="/consumption" element={
               <ProtectedRoute>
-                <Consumption />
+                <ConsumptionAnalysis />
               </ProtectedRoute>
             } />
 
@@ -84,6 +100,14 @@ function App() {
               <ProtectedRoute>
                 <AdminRoute>
                   <AdminDashboard />
+                </AdminRoute>
+              </ProtectedRoute>
+            } />
+
+            <Route path="/admin/dashboard-enhanced" element={
+              <ProtectedRoute>
+                <AdminRoute>
+                  <AdminDashboardEnhanced />
                 </AdminRoute>
               </ProtectedRoute>
             } />

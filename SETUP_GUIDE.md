@@ -54,7 +54,11 @@ The backend services use Docker Compose, so most configuration is already set. H
 # Navigate to backend directory
 cd backend
 
-# Build all services (this may take 5-10 minutes the first time)
+# IMPORTANT: First build the Maven projects to create JAR files
+# This step is REQUIRED before Docker can build the images
+mvn clean install -DskipTests
+
+# Now build Docker images (this may take 5-10 minutes the first time)
 docker compose build
 
 # Start all services
@@ -130,6 +134,30 @@ docker exec -it kafka kafka-console-consumer --bootstrap-server kafka:9092 --top
 You should see a JSON message with the claim details.
 
 ## Common Issues and Solutions
+
+### Issue 0: "no such file or directory" or "target/*.jar" Error
+
+**Error message:**
+```
+failed to solve: lstat /target: no such file or directory
+ERROR [utility-service 2/2] COPY target/*.jar app.jar
+```
+
+**Cause:** You ran `docker compose build` before building the Maven projects. The JAR files don't exist yet.
+
+**Solution:**
+```bash
+cd backend
+
+# Build all Maven projects first
+mvn clean install -DskipTests
+
+# Now Docker can find the JAR files
+docker compose build
+docker compose up -d
+```
+
+**Note:** This is a required first-time setup step. The JAR files are not in git (and shouldn't be).
 
 ### Issue 1: Port Already in Use
 

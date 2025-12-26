@@ -35,9 +35,15 @@ VITE_CLERK_PUBLISHABLE_KEY=<ask_project_owner_for_this>
 VITE_API_URL=http://localhost:8080
 ```
 
-### 3. Start Backend Services
+### 3. Build and Start Backend Services
 ```bash
 cd ../backend
+
+# CRITICAL: Build Maven projects first (creates JAR files)
+mvn clean install -DskipTests
+
+# Then build and start Docker containers
+docker compose build
 docker compose up -d
 ```
 

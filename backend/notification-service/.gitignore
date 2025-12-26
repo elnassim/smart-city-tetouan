@@ -39,9 +39,7 @@ buildNumber.properties
 .classpath
 .factorypath
 
-# Docker
-Dockerfile
-docker-compose.yml
+
 
 # Logs
 logs/

@@ -1,0 +1,5 @@
+com\smartcity\user\repository\UserRepository.class
+com\smartcity\user\dto\UserDTO.class
+com\smartcity\user\model\User.class
+com\smartcity\user\UserServiceApplication.class
+com\smartcity\user\controller\UserController.class

@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: ${JDBC_DATABASE_URL:jdbc:postgresql://localhost:5432/traffic}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:postgres}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP:redpanda:9092}
+    consumer:
+      group-id: ${KAFKA_CONSUMER_GROUP:claims-processor}
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    listener:
+      missing-topics-fatal: false
+
+
+spring.security.user:
+  name: dev
+  password: dev
+
+
+clerk:
+  jwks:
+    url: ${CLERK_JWKS_URL:}
+
+
+dev:
+  skip:
+    jwt:
+      verify: ${DEV_SKIP_JWT_VERIFY:true}

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(name = "user-data-service") // Nom exact du service 1 dans Eureka
+@FeignClient(name = "user-data-service", url = "${user.service.url:http://localhost:8081}") 
 public interface UserClient {
     @PostMapping("/api/users")
     void syncUser(@RequestBody UserDTO user);

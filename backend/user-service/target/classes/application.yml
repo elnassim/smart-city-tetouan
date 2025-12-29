@@ -1,0 +1,23 @@
+server:
+  port: 8083
+
+spring:
+  datasource:
+    url: ${JDBC_DATABASE_URL:jdbc:h2:mem:users;DB_CLOSE_DELAY=-1}
+    username: ${DB_USER:sa}
+    password: ${DB_PASSWORD:}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+# Use CLERK_JWKS_URL to enable signature verification (optional)
+clerk:
+  jwks:
+    url: ${CLERK_JWKS_URL:}
+
+# dev skips
+dev:
+  skip:
+    jwt:
+      verify: ${DEV_SKIP_JWT_VERIFY:true}

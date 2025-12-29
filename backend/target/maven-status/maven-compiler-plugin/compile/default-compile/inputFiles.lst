@@ -1,0 +1,12 @@
+/mnt/d/THE MAIN 4 IMPORTANT/Random/study docs/3_GI3/urbanisme/traffic-management-app/backend/src/main/java/com/smartcity/traffic/kafka/SensorConsumer.java
+/mnt/d/THE MAIN 4 IMPORTANT/Random/study docs/3_GI3/urbanisme/traffic-management-app/backend/src/main/java/com/smartcity/traffic/model/Incident.java
+/mnt/d/THE MAIN 4 IMPORTANT/Random/study docs/3_GI3/urbanisme/traffic-management-app/backend/src/main/java/com/smartcity/traffic/repository/IncidentRepository.java
+/mnt/d/THE MAIN 4 IMPORTANT/Random/study docs/3_GI3/urbanisme/traffic-management-app/backend/src/main/java/com/smartcity/traffic/kafka/KafkaConfig.java
+/mnt/d/THE MAIN 4 IMPORTANT/Random/study docs/3_GI3/urbanisme/traffic-management-app/backend/src/main/java/com/smartcity/traffic/config/KafkaStartupLogger.java
+/mnt/d/THE MAIN 4 IMPORTANT/Random/study docs/3_GI3/urbanisme/traffic-management-app/backend/src/main/java/com/smartcity/traffic/security/JwtVerifier.java
+/mnt/d/THE MAIN 4 IMPORTANT/Random/study docs/3_GI3/urbanisme/traffic-management-app/backend/src/main/java/com/smartcity/traffic/controller/IncidentController.java
+/mnt/d/THE MAIN 4 IMPORTANT/Random/study docs/3_GI3/urbanisme/traffic-management-app/backend/src/main/java/com/smartcity/traffic/security/JwtAuthFilter.java
+/mnt/d/THE MAIN 4 IMPORTANT/Random/study docs/3_GI3/urbanisme/traffic-management-app/backend/src/main/java/com/smartcity/traffic/dto/IncidentRequest.java
+/mnt/d/THE MAIN 4 IMPORTANT/Random/study docs/3_GI3/urbanisme/traffic-management-app/backend/src/main/java/com/smartcity/traffic/kafka/ClaimsConsumer.java
+/mnt/d/THE MAIN 4 IMPORTANT/Random/study docs/3_GI3/urbanisme/traffic-management-app/backend/src/main/java/com/smartcity/traffic/TrafficServiceApplication.java
+/mnt/d/THE MAIN 4 IMPORTANT/Random/study docs/3_GI3/urbanisme/traffic-management-app/backend/src/main/java/com/smartcity/traffic/config/SecurityConfig.java
